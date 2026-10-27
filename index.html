@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Centar za edukaciju Big Ben – Škola stranih jezika, Zrenjanin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap&subset=latin-ext" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;font-family:'Manrope',system-ui,sans-serif;color:#0B1B33;background:#FBFAF7;-webkit-font-smoothing:antialiased}
+a{color:#0E3868;text-decoration:none}
+a:hover{color:#0a2a50}
+</style>
+</helmet>
+
+<!-- ========== NAVIGACIJA ========== -->
+<header class="{{ navCls }}">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 h-[72px] flex items-center justify-between gap-6">
+    <a href="#pocetna" class="flex items-center gap-3" onClick="{{ closeMenu }}">
+      <img src="assets/logo.jpg" alt="Big Ben logo" class="w-12 h-12 rounded-full object-cover scale-[1.02] shadow-md">
+      <span class="flex flex-col leading-tight">
+        <span class="font-extrabold text-[19px] text-[#0E3868] tracking-tight">Big Ben</span>
+        <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">Centar za edukaciju</span>
+      </span>
+    </a>
+    <nav class="hidden md:flex items-center gap-0.5 lg:gap-1">
+      <a href="#o-nama" class="px-2.5 lg:px-4 py-2 rounded-full text-[14px] lg:text-[15px] font-semibold whitespace-nowrap text-slate-700 hover:text-[#0E3868] hover:bg-[#0E3868]/5 transition">O nama</a>
+      <a href="#kursevi" class="px-2.5 lg:px-4 py-2 rounded-full text-[14px] lg:text-[15px] font-semibold whitespace-nowrap text-slate-700 hover:text-[#0E3868] hover:bg-[#0E3868]/5 transition">Kursevi</a>
+      <a href="#galerija" class="px-2.5 lg:px-4 py-2 rounded-full text-[14px] lg:text-[15px] font-semibold whitespace-nowrap text-slate-700 hover:text-[#0E3868] hover:bg-[#0E3868]/5 transition">Galerija</a>
+      <a href="#faq" class="px-2.5 lg:px-4 py-2 rounded-full text-[14px] lg:text-[15px] font-semibold whitespace-nowrap text-slate-700 hover:text-[#0E3868] hover:bg-[#0E3868]/5 transition">Česta pitanja</a>
+      <a href="#kontakt" class="px-2.5 lg:px-4 py-2 rounded-full text-[14px] lg:text-[15px] font-semibold whitespace-nowrap text-slate-700 hover:text-[#0E3868] hover:bg-[#0E3868]/5 transition">Kontakt</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="tel:+381691556162" class="hidden xl:flex items-center gap-2 text-[15px] font-bold text-[#0E3868] whitespace-nowrap"><i class="fa-solid fa-phone text-sm"></i>069 155 6162</a>
+      <a href="#kontakt" class="hidden sm:inline-flex items-center gap-2 whitespace-nowrap bg-[#FFD36A] text-[#0E3868] font-bold text-[15px] px-5 py-2.5 rounded-full shadow-[0_6px_20px_-6px_rgba(255,211,106,0.9)] hover:-translate-y-0.5 hover:shadow-lg transition">Prijavi se <i class="fa-solid fa-arrow-right text-xs"></i></a>
+      <button type="button" aria-label="Meni" onClick="{{ toggleMenu }}" class="md:hidden w-11 h-11 rounded-xl border border-slate-200 bg-white grid place-items-center text-[#0E3868] text-lg"><i class="{{ menuIcon }}"></i></button>
+    </div>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="md:hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl">
+      <nav class="max-w-7xl mx-auto px-5 py-4 flex flex-col gap-1">
+        <a href="#o-nama" onClick="{{ closeMenu }}" class="px-4 py-3 rounded-xl font-semibold text-slate-800 hover:bg-[#0E3868]/5">O nama</a>
+        <a href="#kursevi" onClick="{{ closeMenu }}" class="px-4 py-3 rounded-xl font-semibold text-slate-800 hover:bg-[#0E3868]/5">Kursevi</a>
+        <a href="#galerija" onClick="{{ closeMenu }}" class="px-4 py-3 rounded-xl font-semibold text-slate-800 hover:bg-[#0E3868]/5">Galerija</a>
+        <a href="#faq" onClick="{{ closeMenu }}" class="px-4 py-3 rounded-xl font-semibold text-slate-800 hover:bg-[#0E3868]/5">Česta pitanja</a>
+        <a href="#kontakt" onClick="{{ closeMenu }}" class="px-4 py-3 rounded-xl font-semibold text-slate-800 hover:bg-[#0E3868]/5">Kontakt</a>
+        <div class="grid grid-cols-2 gap-2 pt-3">
+          <a href="tel:+381691556162" class="flex items-center justify-center gap-2 py-3 rounded-xl border border-[#0E3868]/20 font-bold text-[#0E3868]"><i class="fa-solid fa-phone"></i>Pozovi</a>
+          <a href="#kontakt" onClick="{{ closeMenu }}" class="flex items-center justify-center gap-2 py-3 rounded-xl bg-[#FFD36A] font-bold text-[#0E3868]">Prijavi se</a>
+        </div>
+      </nav>
+    </div>
+  </sc-if>
+</header>
+
+<main>
+<!-- ========== HERO ========== -->
+<section id="pocetna" class="relative overflow-hidden bg-[#0E3868] text-white pt-[72px]">
+  <div class="absolute -top-40 -right-40 w-[560px] h-[560px] rounded-full bg-[#FFD36A]/10"></div>
+  <div class="absolute bottom-[-220px] left-[-120px] w-[420px] h-[420px] rounded-full border border-white/10"></div>
+  <div class="relative max-w-7xl mx-auto px-5 lg:px-8 py-16 lg:py-28 grid lg:grid-cols-[1.1fr_0.9fr] gap-14 items-center">
+    <div>
+      <span class="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-4 py-1.5 text-[13px] font-semibold text-[#FFD36A]"><i class="fa-solid fa-award"></i>Zrenjanin · škola stranih jezika</span>
+      <h1 class="mt-6 text-[40px] sm:text-[54px] lg:text-[64px] font-extrabold leading-[1.04] tracking-[-0.03em] text-balance">Više od <span class="text-[#FFD36A]">20 godina</span> tradicije u učenju stranih jezika</h1>
+      <p class="mt-6 text-lg sm:text-xl text-white/75 max-w-xl leading-relaxed text-pretty">Engleski i nemački jezik za decu i odrasle, od A1 do C2 nivoa. Grupna i individualna nastava sa iskusnim predavačima, na dve lokacije u Zrenjaninu.</p>
+      <div class="mt-9 flex flex-col sm:flex-row gap-3">
+        <a href="#kursevi" class="inline-flex items-center justify-center gap-2 bg-[#FFD36A] text-[#0E3868] font-bold text-base px-7 py-4 rounded-2xl shadow-[0_12px_30px_-10px_rgba(255,211,106,0.8)] hover:-translate-y-0.5 transition">Pogledaj kurseve <i class="fa-solid fa-arrow-right text-sm"></i></a>
+        <a href="#kontakt" class="inline-flex items-center justify-center gap-2 bg-white/10 text-white border border-white/25 font-bold text-base px-7 py-4 rounded-2xl hover:bg-white hover:text-[#0E3868] transition">Besplatna konsultacija</a>
+      </div>
+      <div class="mt-12 flex flex-wrap gap-x-10 gap-y-5">
+        <div><div class="text-3xl font-extrabold text-[#FFD36A]">20+</div><div class="text-sm text-white/65 font-medium">godina iskustva</div></div>
+        <div><div class="text-3xl font-extrabold text-[#FFD36A]">A1–C2</div><div class="text-sm text-white/65 font-medium">svi nivoi znanja</div></div>
+        <div><div class="text-3xl font-extrabold text-[#FFD36A]">2</div><div class="text-sm text-white/65 font-medium">lokacije u gradu</div></div>
+      </div>
+    </div>
+    <!-- Vizuelni element: kompozicija kartica -->
+    <div class="relative h-[420px] sm:h-[480px] hidden sm:block">
+      <div class="absolute inset-x-6 top-6 bottom-0 rounded-[32px] bg-gradient-to-br from-white/15 to-white/5 border border-white/15 backdrop-blur-sm"></div>
+      <div class="absolute left-0 top-14 w-[64%] bg-white text-[#0B1B33] rounded-2xl p-5 shadow-2xl rotate-[-4deg] hover:rotate-0 transition duration-500">
+        <div class="flex items-center gap-3">
+          <span class="w-11 h-11 rounded-xl bg-[#0E3868] text-white grid place-items-center font-extrabold">EN</span>
+          <div><div class="font-bold">Engleski jezik</div><div class="text-sm text-slate-500">Deca i odrasli</div></div>
+        </div>
+        <p class="mt-4 font-['Instrument_Serif'] italic text-[34px] leading-none text-[#0E3868]">“Hello, how are you?”</p>
+      </div>
+      <div class="absolute right-0 top-[44%] w-[62%] bg-[#FFD36A] text-[#0E3868] rounded-2xl p-5 shadow-2xl rotate-[3deg] hover:rotate-0 transition duration-500">
+        <div class="flex items-center gap-3">
+          <span class="w-11 h-11 rounded-xl bg-[#0E3868] text-[#FFD36A] grid place-items-center font-extrabold">DE</span>
+          <div><div class="font-bold">Nemački jezik</div><div class="text-sm text-[#0E3868]/70">Deca i odrasli</div></div>
+        </div>
+        <p class="mt-4 font-['Instrument_Serif'] italic text-[34px] leading-none">“Hallo, wie geht's?”</p>
+      </div>
+      <div class="absolute left-10 bottom-4 bg-white rounded-2xl px-5 py-4 shadow-2xl flex items-center gap-2">
+        <span class="w-9 h-9 rounded-lg bg-[#0E3868]/10 text-[#0E3868] grid place-items-center text-[12px] font-extrabold">A1</span>
+        <span class="w-9 h-9 rounded-lg bg-[#0E3868]/20 text-[#0E3868] grid place-items-center text-[12px] font-extrabold">A2</span>
+        <span class="w-9 h-9 rounded-lg bg-[#0E3868]/35 text-[#0E3868] grid place-items-center text-[12px] font-extrabold">B1</span>
+        <span class="w-9 h-9 rounded-lg bg-[#0E3868]/60 text-white grid place-items-center text-[12px] font-extrabold">B2</span>
+        <span class="w-9 h-9 rounded-lg bg-[#0E3868]/80 text-white grid place-items-center text-[12px] font-extrabold">C1</span>
+        <span class="w-9 h-9 rounded-lg bg-[#0E3868] text-[#FFD36A] grid place-items-center text-[12px] font-extrabold">C2</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== O NAMA ========== -->
+<section id="o-nama" class="py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-20 items-end">
+      <div>
+        <span class="text-sm font-bold uppercase tracking-[0.16em] text-[#0E3868]/60">O nama</span>
+        <h2 class="mt-3 text-[34px] sm:text-[46px] font-extrabold leading-[1.08] tracking-[-0.025em] text-[#0E3868] text-balance">Škola koju Zrenjanin poznaje i kojoj veruje već dve decenije</h2>
+      </div>
+      <p class="text-lg text-slate-600 leading-relaxed text-pretty">Centar za edukaciju Big Ben uspešno posluje preko 20 godina. Kroz naše učionice prošle su generacije đaka, studenata i odraslih polaznika koji su uz nas savladali engleski i nemački jezik – za školu, posao, putovanja ili međunarodni sertifikat. Svakom polazniku pristupamo lično, uz program prilagođen njegovom uzrastu, nivou i cilju.</p>
+    </div>
+    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <sc-for list="{{ features }}" as="f" hint-placeholder-count="4">
+        <div class="group bg-white rounded-2xl p-7 border border-slate-200/80 shadow-[0_2px_10px_-4px_rgba(14,56,104,0.12)] hover:shadow-[0_20px_40px_-16px_rgba(14,56,104,0.3)] hover:-translate-y-1 transition duration-300">
+          <span class="w-14 h-14 rounded-2xl bg-[#0E3868] text-[#FFD36A] grid place-items-center text-xl group-hover:bg-[#FFD36A] group-hover:text-[#0E3868] transition"><i class="fa-solid {{ f.icon }}"></i></span>
+          <h3 class="mt-6 text-lg font-bold text-[#0E3868]">{{ f.title }}</h3>
+          <p class="mt-2 text-[15px] text-slate-600 leading-relaxed">{{ f.text }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ========== KURSEVI ========== -->
+<section id="kursevi" class="py-20 lg:py-28 bg-white border-y border-slate-200/70">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto">
+      <span class="text-sm font-bold uppercase tracking-[0.16em] text-[#0E3868]/60">Kursevi</span>
+      <h2 class="mt-3 text-[34px] sm:text-[46px] font-extrabold leading-[1.08] tracking-[-0.025em] text-[#0E3868]">Izaberite jezik i program</h2>
+      <p class="mt-4 text-lg text-slate-600">Nastava je dostupna grupno i individualno, za sve nivoe od A1 do C2.</p>
+    </div>
+
+    <!-- Jezici -->
+    <div class="mt-14 grid md:grid-cols-2 gap-6">
+      <div class="relative overflow-hidden rounded-2xl bg-[#0E3868] text-white p-8 lg:p-10 shadow-xl hover:-translate-y-1 transition duration-300">
+        <div class="absolute -right-10 -top-10 w-48 h-48 rounded-full bg-[#FFD36A]/15"></div>
+        <div class="relative flex items-start justify-between gap-4">
+          <div>
+            <span class="text-[#FFD36A] text-sm font-bold uppercase tracking-[0.14em]">English</span>
+            <h3 class="mt-2 text-3xl font-extrabold">Engleski jezik</h3>
+          </div>
+          <span class="w-14 h-14 rounded-2xl bg-[#FFD36A] text-[#0E3868] grid place-items-center text-xl font-extrabold">EN</span>
+        </div>
+        <p class="relative mt-4 text-white/75 leading-relaxed">Od prvih reči za predškolce do naprednog i poslovnog engleskog. Rad po Big Ben programu ili po školskom gradivu.</p>
+        <div class="relative mt-6 flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 rounded-full bg-white/10 text-sm font-semibold">Deca</span>
+          <span class="px-3 py-1.5 rounded-full bg-white/10 text-sm font-semibold">Odrasli</span>
+          <span class="px-3 py-1.5 rounded-full bg-white/10 text-sm font-semibold">Grupno</span>
+          <span class="px-3 py-1.5 rounded-full bg-white/10 text-sm font-semibold">Individualno</span>
+          <span class="px-3 py-1.5 rounded-full bg-[#FFD36A] text-[#0E3868] text-sm font-bold">A1–C2</span>
+        </div>
+      </div>
+      <div class="relative overflow-hidden rounded-2xl bg-[#FFD36A] text-[#0E3868] p-8 lg:p-10 shadow-xl hover:-translate-y-1 transition duration-300">
+        <div class="absolute -right-10 -top-10 w-48 h-48 rounded-full bg-[#0E3868]/10"></div>
+        <div class="relative flex items-start justify-between gap-4">
+          <div>
+            <span class="text-[#0E3868]/70 text-sm font-bold uppercase tracking-[0.14em]">Deutsch</span>
+            <h3 class="mt-2 text-3xl font-extrabold">Nemački jezik</h3>
+          </div>
+          <span class="w-14 h-14 rounded-2xl bg-[#0E3868] text-[#FFD36A] grid place-items-center text-xl font-extrabold">DE</span>
+        </div>
+        <p class="relative mt-4 text-[#0E3868]/80 leading-relaxed">Nemački za školu, posao i život u inostranstvu, uz pripremu za međunarodne ispite i sertifikate.</p>
+        <div class="relative mt-6 flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 rounded-full bg-[#0E3868]/10 text-sm font-semibold">Deca</span>
+          <span class="px-3 py-1.5 rounded-full bg-[#0E3868]/10 text-sm font-semibold">Odrasli</span>
+          <span class="px-3 py-1.5 rounded-full bg-[#0E3868]/10 text-sm font-semibold">Grupno</span>
+          <span class="px-3 py-1.5 rounded-full bg-[#0E3868]/10 text-sm font-semibold">Individualno</span>
+          <span class="px-3 py-1.5 rounded-full bg-[#0E3868] text-[#FFD36A] text-sm font-bold">A1–C2</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabovi / filter programa -->
+    <div class="mt-16 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+      <h3 class="text-2xl font-extrabold text-[#0E3868]">Programi</h3>
+      <div class="inline-flex p-1.5 rounded-2xl bg-slate-100 border border-slate-200 self-start">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="3">
+          <button type="button" onClick="{{ t.onClick }}" class="{{ t.cls }}"><i class="fa-solid {{ t.icon }} text-sm"></i>{{ t.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <sc-for list="{{ programs }}" as="p" hint-placeholder-count="6">
+        <div class="group flex flex-col bg-[#FBFAF7] rounded-2xl p-7 border border-slate-200 hover:border-[#0E3868]/30 hover:bg-white hover:shadow-[0_20px_40px_-16px_rgba(14,56,104,0.28)] hover:-translate-y-1 transition duration-300">
+          <div class="flex items-center justify-between">
+            <span class="w-12 h-12 rounded-xl bg-[#0E3868]/8 bg-[#0E3868]/10 text-[#0E3868] grid place-items-center text-lg group-hover:bg-[#FFD36A] transition"><i class="fa-solid {{ p.icon }}"></i></span>
+            <span class="text-xs font-bold uppercase tracking-[0.12em] text-[#0E3868]/60">{{ p.audienceLabel }}</span>
+          </div>
+          <h4 class="mt-5 text-xl font-bold text-[#0E3868]">{{ p.title }}</h4>
+          <p class="mt-2 text-[15px] text-slate-600 leading-relaxed flex-1">{{ p.text }}</p>
+          <div class="mt-5 flex flex-wrap gap-2">
+            <sc-for list="{{ p.tags }}" as="tag" hint-placeholder-count="3">
+              <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-[13px] font-semibold text-slate-700">{{ tag }}</span>
+            </sc-for>
+          </div>
+          <a href="#kontakt" onClick="{{ p.pick }}" class="mt-6 inline-flex items-center gap-2 font-bold text-[15px] text-[#0E3868] group-hover:gap-3 transition-all">Prijavi se <i class="fa-solid fa-arrow-right text-xs"></i></a>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ========== GALERIJA ========== -->
+<section id="galerija" class="py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div>
+        <span class="text-sm font-bold uppercase tracking-[0.16em] text-[#0E3868]/60">Galerija</span>
+        <h2 class="mt-3 text-[34px] sm:text-[46px] font-extrabold leading-[1.08] tracking-[-0.025em] text-[#0E3868]">Atmosfera u našim učionicama</h2>
+      </div>
+      <p class="text-slate-600 max-w-md">Prijatan prostor, male grupe i mnogo razgovora – tako izgleda učenje u Big Ben-u.</p>
+    </div>
+    <div class="mt-12 columns-1 sm:columns-2 lg:columns-3 gap-4">
+      <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="6">
+        <figure class="{{ g.cls }}">
+          <img src="{{ g.src }}" alt="{{ g.caption }}" loading="lazy" class="block w-full h-auto transition duration-700 ease-out group-hover:scale-110">
+          <figcaption class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-[#0E3868]/90 to-transparent text-white font-semibold translate-y-full group-hover:translate-y-0 transition duration-300">{{ g.caption }}</figcaption>
+        </figure>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section id="faq" class="py-20 lg:py-28 bg-white border-y border-slate-200/70">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 grid lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-20">
+    <div>
+      <span class="text-sm font-bold uppercase tracking-[0.16em] text-[#0E3868]/60">Česta pitanja</span>
+      <h2 class="mt-3 text-[34px] sm:text-[46px] font-extrabold leading-[1.08] tracking-[-0.025em] text-[#0E3868]">Imate pitanje?</h2>
+      <p class="mt-4 text-lg text-slate-600">Ako ne pronađete odgovor ovde, pozovite nas – rado ćemo vam pomoći da izaberete pravi kurs.</p>
+      <a href="tel:+381691556162" class="mt-8 inline-flex items-center gap-3 bg-[#0E3868] text-white font-bold px-6 py-4 rounded-2xl shadow-lg hover:-translate-y-0.5 hover:text-[#FFD36A] transition"><i class="fa-solid fa-phone"></i>069 155 6162</a>
+    </div>
+    <div class="flex flex-col gap-3">
+      <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="6">
+        <div class="{{ q.wrapCls }}">
+          <button type="button" onClick="{{ q.toggle }}" class="w-full flex items-center justify-between gap-4 text-left px-6 py-5">
+            <span class="text-[17px] font-bold text-[#0E3868]">{{ q.q }}</span>
+            <span class="{{ q.iconCls }}"><i class="fa-solid fa-plus text-sm"></i></span>
+          </button>
+          <div class="{{ q.panelCls }}">
+            <div class="overflow-hidden"><p class="px-6 pb-6 text-[15px] text-slate-600 leading-relaxed">{{ q.a }}</p></div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ========== KONTAKT ========== -->
+<section id="kontakt" class="py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto">
+      <span class="text-sm font-bold uppercase tracking-[0.16em] text-[#0E3868]/60">Kontakt i lokacije</span>
+      <h2 class="mt-3 text-[34px] sm:text-[46px] font-extrabold leading-[1.08] tracking-[-0.025em] text-[#0E3868]">Posetite nas ili nam pišite</h2>
+    </div>
+    <div class="mt-14 grid lg:grid-cols-[1fr_1.1fr] gap-6">
+      <div class="flex flex-col gap-5">
+        <div class="grid sm:grid-cols-2 gap-5">
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=4.+jula+22+Zrenjanin" target="_blank" rel="noopener" class="group bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition">
+            <span class="w-12 h-12 rounded-xl bg-[#0E3868] text-[#FFD36A] grid place-items-center"><i class="fa-solid fa-location-dot"></i></span>
+            <div class="mt-5 text-xs font-bold uppercase tracking-[0.14em] text-[#0E3868]/60">Lokacija 1</div>
+            <div class="mt-1 text-lg font-bold text-[#0E3868]">4. juli br. 22/13</div>
+            <div class="text-slate-500">Zrenjanin</div>
+            <div class="mt-4 text-sm font-bold text-[#0E3868] inline-flex items-center gap-2 group-hover:gap-3 transition-all">Otvori mapu <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></div>
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Stra%C5%BEilovska+54+Zrenjanin" target="_blank" rel="noopener" class="group bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition">
+            <span class="w-12 h-12 rounded-xl bg-[#0E3868] text-[#FFD36A] grid place-items-center"><i class="fa-solid fa-location-dot"></i></span>
+            <div class="mt-5 text-xs font-bold uppercase tracking-[0.14em] text-[#0E3868]/60">Lokacija 2</div>
+            <div class="mt-1 text-lg font-bold text-[#0E3868]">Stražilovska br. 54</div>
+            <div class="text-slate-500">Zrenjanin 23000</div>
+            <div class="mt-4 text-sm font-bold text-[#0E3868] inline-flex items-center gap-2 group-hover:gap-3 transition-all">Otvori mapu <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></div>
+          </a>
+        </div>
+        <div class="bg-[#0E3868] text-white rounded-2xl p-7 shadow-xl flex flex-col gap-6">
+          <div class="flex items-center gap-4">
+            <span class="w-12 h-12 rounded-xl bg-white/10 text-[#FFD36A] grid place-items-center"><i class="fa-regular fa-clock"></i></span>
+            <div><div class="text-sm text-white/60 font-medium">Radno vreme</div><div class="text-lg font-bold">Ponedeljak – Subota, 08h – 20h</div></div>
+          </div>
+          <a href="tel:+381691556162" class="flex items-center gap-4 text-white hover:text-[#FFD36A] transition">
+            <span class="w-12 h-12 rounded-xl bg-[#FFD36A] text-[#0E3868] grid place-items-center"><i class="fa-solid fa-phone"></i></span>
+            <div><div class="text-sm text-white/60 font-medium">Telefon</div><div class="text-lg font-bold">069 155 6162</div></div>
+          </a>
+          <div class="pt-5 border-t border-white/15 flex items-center justify-between gap-4 flex-wrap">
+            <span class="text-white/70 font-medium">Pratite nas</span>
+            <div class="flex gap-3">
+              <a href="#" aria-label="Facebook" class="w-11 h-11 rounded-xl bg-white/10 text-white grid place-items-center hover:bg-[#FFD36A] hover:text-[#0E3868] transition"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" aria-label="Instagram" class="w-11 h-11 rounded-xl bg-white/10 text-white grid place-items-center hover:bg-[#FFD36A] hover:text-[#0E3868] transition"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kontakt forma -->
+      <div class="bg-white rounded-2xl p-7 sm:p-9 border border-slate-200 shadow-[0_20px_50px_-24px_rgba(14,56,104,0.35)]">
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div class="h-full min-h-[420px] flex flex-col items-center justify-center text-center">
+            <span class="w-20 h-20 rounded-full bg-[#FFD36A] text-[#0E3868] grid place-items-center text-3xl shadow-lg"><i class="fa-solid fa-check"></i></span>
+            <h3 class="mt-6 text-2xl font-extrabold text-[#0E3868]">Hvala, {{ sentName }}!</h3>
+            <p class="mt-3 text-slate-600 max-w-sm">Vaša poruka je uspešno poslata. Javićemo vam se u najkraćem roku na broj {{ sentPhone }}.</p>
+            <button type="button" onClick="{{ resetForm }}" class="mt-8 px-6 py-3 rounded-xl border border-[#0E3868]/20 font-bold text-[#0E3868] hover:bg-[#0E3868] hover:text-white transition">Pošalji novu poruku</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ submit }}" class="flex flex-col gap-5">
+            <div>
+              <h3 class="text-2xl font-extrabold text-[#0E3868]">Prijava i upit</h3>
+              <p class="mt-1 text-slate-500">Popunite formu i kontaktiraćemo vas radi besplatne konsultacije.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <label class="flex flex-col gap-2">
+                <span class="text-sm font-bold text-slate-700">Ime i prezime</span>
+                <input name="name" required value="{{ form.name }}" onChange="{{ onField }}" placeholder="Vaše ime" class="h-12 px-4 rounded-xl border border-slate-200 bg-[#FBFAF7] focus:bg-white focus:border-[#0E3868] focus:ring-4 focus:ring-[#0E3868]/10 outline-none transition">
+              </label>
+              <label class="flex flex-col gap-2">
+                <span class="text-sm font-bold text-slate-700">Telefon</span>
+                <input name="phone" type="tel" required value="{{ form.phone }}" onChange="{{ onField }}" placeholder="06x xxx xxxx" class="h-12 px-4 rounded-xl border border-slate-200 bg-[#FBFAF7] focus:bg-white focus:border-[#0E3868] focus:ring-4 focus:ring-[#0E3868]/10 outline-none transition">
+              </label>
+            </div>
+            <label class="flex flex-col gap-2">
+              <span class="text-sm font-bold text-slate-700">Izaberite kurs</span>
+              <select name="course" value="{{ form.course }}" onChange="{{ onField }}" class="h-12 px-4 rounded-xl border border-slate-200 bg-[#FBFAF7] focus:bg-white focus:border-[#0E3868] focus:ring-4 focus:ring-[#0E3868]/10 outline-none transition">
+                <sc-for list="{{ courseOptions }}" as="o" hint-placeholder-count="6">
+                  <option value="{{ o }}">{{ o }}</option>
+                </sc-for>
+              </select>
+            </label>
+            <label class="flex flex-col gap-2">
+              <span class="text-sm font-bold text-slate-700">Poruka</span>
+              <textarea name="message" rows="4" value="{{ form.message }}" onChange="{{ onField }}" placeholder="Uzrast polaznika, trenutni nivo, željeni termini..." class="px-4 py-3 rounded-xl border border-slate-200 bg-[#FBFAF7] focus:bg-white focus:border-[#0E3868] focus:ring-4 focus:ring-[#0E3868]/10 outline-none transition resize-none"></textarea>
+            </label>
+            <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}">
+              <p class="text-[15px] font-semibold text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-3">Slanje nije uspelo. Pokušajte ponovo ili nas pozovite na <a href="tel:+381691556162" class="underline font-bold text-red-700">069 155 6162</a>.</p>
+            </sc-if>
+            <button type="submit" class="{{ submitCls }}">{{ submitLabel }} <i class="fa-solid fa-paper-plane text-sm"></i></button>
+          </form>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ========== PLUTAJUĆA DUGMAD ========== -->
+<div class="fixed right-4 bottom-4 sm:right-6 sm:bottom-6 z-40 flex flex-col gap-3">
+  <a href="#pocetna" aria-label="Na vrh" class="{{ topBtnCls }}"><i class="fa-solid fa-arrow-up"></i></a>
+  <a href="tel:+381691556162" aria-label="Pozovi 069 155 6162" class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#FFD36A] text-[#0E3868] grid place-items-center text-lg shadow-[0_10px_25px_-8px_rgba(14,56,104,0.55)] hover:-translate-y-1 hover:bg-[#0E3868] hover:text-[#FFD36A] transition"><i class="fa-solid fa-phone"></i></a>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<footer class="bg-[#0A2A4F] text-white/70">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 py-14 grid md:grid-cols-[1.4fr_1fr_1fr] gap-10">
+    <div>
+      <div class="flex items-center gap-3">
+        <img src="assets/logo.jpg" alt="Big Ben logo" class="w-16 h-16 rounded-full object-cover">
+        <span class="font-extrabold text-xl text-white">Big Ben</span>
+      </div>
+      <p class="mt-4 max-w-sm leading-relaxed">Centar za edukaciju Big Ben – škola engleskog i nemačkog jezika u Zrenjaninu, više od 20 godina.</p>
+    </div>
+    <div>
+      <div class="text-white font-bold mb-4">Brzi linkovi</div>
+      <div class="flex flex-col gap-2.5">
+        <a href="#o-nama" class="text-white/70 hover:text-[#FFD36A] transition">O nama</a>
+        <a href="#kursevi" class="text-white/70 hover:text-[#FFD36A] transition">Kursevi</a>
+        <a href="#galerija" class="text-white/70 hover:text-[#FFD36A] transition">Galerija</a>
+        <a href="#faq" class="text-white/70 hover:text-[#FFD36A] transition">Česta pitanja</a>
+        <a href="#kontakt" class="text-white/70 hover:text-[#FFD36A] transition">Kontakt</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-white font-bold mb-4">Zrenjanin</div>
+      <div class="flex flex-col gap-2.5">
+        <span>4. juli br. 22/13</span>
+        <span>Stražilovska br. 54, 23000</span>
+        <a href="tel:+381691556162" class="text-[#FFD36A] font-bold hover:text-white transition">069 155 6162</a>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8 py-6 flex flex-col sm:flex-row justify-between gap-2 text-sm">
+      <span>© {{ year }} Centar za edukaciju Big Ben. Sva prava zadržana.</span>
+      <span>Zrenjanin, Srbija</span>
+    </div>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    scrolled: false, menuOpen: false, tab: 'svi', openFaq: 0, sent: false,
+    form: { name: '', phone: '', course: 'Engleski – deca', message: '' }
+  };
+
+  componentDidMount() {
+    this.onScroll = () => {
+      const s = window.scrollY > 20;
+      if (s !== this.state.scrolled) this.setState({ scrolled: s });
+      const sec = document.getElementById('o-nama');
+      const t = sec ? window.scrollY + 100 >= sec.offsetTop : false;
+      if (t !== this.state.showTop) this.setState({ showTop: t });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); }
+
+  renderVals() {
+    const { scrolled, menuOpen, tab, openFaq, sent, form } = this.state;
+    const solid = scrolled || menuOpen;
+
+    const features = [
+      { icon: 'fa-book-open', title: 'Big Ben program ili školsko gradivo', text: 'Radimo po sopstvenom Big Ben programu ili pratimo gradivo koje polaznik ima u školi.' },
+      { icon: 'fa-users', title: 'Grupna i individualna nastava', text: 'Male grupe ujednačenog nivoa ili časovi jedan na jedan, prema vašim potrebama.' },
+      { icon: 'fa-children', title: 'Deca i odrasli, A1 do C2', text: 'Programi za sve uzraste i sve nivoe znanja – od početnika do naprednih govornika.' },
+      { icon: 'fa-chalkboard-user', title: 'Iskusni predavači', text: 'Predavači sa dugogodišnjim iskustvom u radu sa decom, đacima i odraslima.' }
+    ];
+
+    const all = [
+      { id: 'en-deca', aud: 'deca', icon: 'fa-shapes', title: 'Engleski za decu', text: 'Kroz igru, pesmu i razgovor za predškolce i osnovce, po Big Ben programu ili školskom gradivu.', tags: ['Grupno', 'Individualno', 'A1–B1'], course: 'Engleski – deca' },
+      { id: 'de-deca', aud: 'deca', icon: 'fa-puzzle-piece', title: 'Nemački za decu', text: 'Prvi koraci u nemačkom jeziku i podrška tokom osnovne i srednje škole.', tags: ['Grupno', 'Individualno', 'A1–B1'], course: 'Nemački – deca' },
+      { id: 'skola', aud: 'deca', icon: 'fa-pencil', title: 'Školska pomoć', text: 'Utvrđivanje gradiva, priprema za kontrolne zadatke, testove i prijemne ispite.', tags: ['Engleski', 'Nemački', 'Individualno'], course: 'Školska pomoć' },
+      { id: 'en-odr', aud: 'odrasli', icon: 'fa-briefcase', title: 'Engleski za odrasle', text: 'Opšti i poslovni engleski – za posao, putovanja i svakodnevnu komunikaciju.', tags: ['Grupno', 'Individualno', 'A1–C2'], course: 'Engleski – odrasli' },
+      { id: 'de-odr', aud: 'odrasli', icon: 'fa-plane', title: 'Nemački za odrasle', text: 'Nemački za posao, studije i život u inostranstvu, od početnog do naprednog nivoa.', tags: ['Grupno', 'Individualno', 'A1–C2'], course: 'Nemački – odrasli' },
+      { id: 'sert', aud: 'odrasli', icon: 'fa-certificate', title: 'Međunarodni sertifikati', text: 'Ciljana priprema za međunarodne ispite i sertifikate iz engleskog i nemačkog jezika.', tags: ['B1–C2', 'Individualno', 'Grupno'], course: 'Priprema za sertifikate' }
+    ];
+    const audLabel = { deca: 'Za decu', odrasli: 'Za odrasle' };
+    const programs = all.filter(p => tab === 'svi' || p.aud === tab).map(p => ({
+      ...p, audienceLabel: audLabel[p.aud],
+      pick: () => this.setState(s => ({ form: { ...s.form, course: p.course } }))
+    }));
+
+    const tabDefs = [
+      { k: 'svi', label: 'Svi', icon: 'fa-layer-group' },
+      { k: 'deca', label: 'Za decu', icon: 'fa-child' },
+      { k: 'odrasli', label: 'Za odrasle', icon: 'fa-user' }
+    ];
+    const tabs = tabDefs.map(t => ({
+      ...t,
+      onClick: () => this.setState({ tab: t.k }),
+      cls: 'inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl text-[15px] font-bold transition ' +
+        (tab === t.k ? 'bg-[#0E3868] text-white shadow-md' : 'text-slate-600 hover:text-[#0E3868]')
+    }));
+
+    const tile = 'group relative overflow-hidden rounded-2xl m-0 mb-4 break-inside-avoid cursor-pointer shadow-sm hover:shadow-xl transition ';
+    const gallery = [
+      { src: 'assets/g4.jpg', caption: 'Uručivanje uverenja', span: 'col-span-2 row-span-2' },
+      { src: 'assets/g5.jpg', caption: 'Naš tim', span: '' },
+      { src: 'assets/g6.jpg', caption: 'Ponosni polaznici', span: '' },
+      { src: 'assets/g3.jpg', caption: 'Uverenje o završenom nivou', span: 'row-span-2' },
+      { src: 'assets/g2.jpg', caption: 'Generacija polaznika', span: '' },
+      { src: 'assets/g1.jpg', caption: 'Zajedno do znanja', span: 'col-span-2 lg:col-span-1' }
+    ].map(g => ({ ...g, cls: tile }));
+
+    const faqData = [
+      { q: 'Kako se formiraju grupe?', a: 'Grupe formiramo prema uzrastu i nivou znanja. Pre početka kursa svaki polaznik radi kratku proveru nivoa kako bi bio raspoređen u grupu koja mu najviše odgovara.' },
+      { q: 'Koliko traju časovi?', a: 'Trajanje i učestalost časova zavise od uzrasta i programa. Tačan raspored dogovaramo pri upisu, u skladu sa vašim obavezama.' },
+      { q: 'Da li radite pripremu po školskom programu?', a: 'Da. Pored Big Ben programa, radimo i po školskom gradivu – pomažemo u savladavanju lekcija, pripremi za kontrolne zadatke, testove i prijemne ispite.' },
+      { q: 'Da li postoji individualna nastava?', a: 'Da, nudimo individualne časove za decu i odrasle, uz potpuno prilagođen tempo, sadržaj i termine.' },
+      { q: 'Koje nivoe znanja pokrivate?', a: 'Radimo sa svim nivoima, od početnog A1 do naprednog C2, za engleski i nemački jezik.' },
+      { q: 'Da li pripremate za međunarodne sertifikate?', a: 'Da, organizujemo ciljanu pripremu za međunarodne ispite i sertifikate iz engleskog i nemačkog jezika.' }
+    ];
+    const faqs = faqData.map((f, i) => {
+      const open = openFaq === i;
+      return {
+        ...f,
+        toggle: () => this.setState({ openFaq: open ? -1 : i }),
+        wrapCls: 'rounded-2xl border transition duration-300 ' + (open ? 'bg-[#FBFAF7] border-[#0E3868]/25 shadow-[0_12px_30px_-18px_rgba(14,56,104,0.4)]' : 'bg-white border-slate-200 hover:border-[#0E3868]/25'),
+        iconCls: 'shrink-0 w-9 h-9 rounded-full grid place-items-center transition duration-300 ' + (open ? 'bg-[#FFD36A] text-[#0E3868] rotate-45' : 'bg-[#0E3868]/10 text-[#0E3868]'),
+        panelCls: 'grid transition-all duration-300 ease-out ' + (open ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0')
+      };
+    });
+
+    const valid = form.name.trim() && form.phone.trim();
+
+    return {
+      navCls: 'fixed top-0 inset-x-0 z-50 transition-all duration-300 ' + (solid ? 'bg-white/80 backdrop-blur-xl shadow-[0_8px_30px_-12px_rgba(14,56,104,0.25)] border-b border-slate-200/70' : 'bg-white/95 lg:bg-white/90'),
+      menuOpen,
+      topBtnCls: 'w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white text-[#0E3868] border border-slate-200 grid place-items-center text-lg shadow-[0_10px_25px_-8px_rgba(14,56,104,0.45)] hover:-translate-y-1 hover:bg-[#0E3868] hover:text-white transition duration-300 ' + (this.state.showTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3 pointer-events-none'),
+      menuIcon: menuOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars',
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      features, tabs, programs, gallery, faqs,
+      courseOptions: ['Engleski – deca', 'Engleski – odrasli', 'Nemački – deca', 'Nemački – odrasli', 'Školska pomoć', 'Priprema za sertifikate', 'Individualna nastava'],
+      form, sent, notSent: !sent,
+      sentName: form.name.split(' ')[0], sentPhone: form.phone,
+      onField: e => { const { name, value } = e.target; this.setState(s => ({ form: { ...s.form, [name]: value } })); },
+      submit: async e => {
+        e.preventDefault();
+        if (!valid || this.state.sending) return;
+        this.setState({ sending: true, error: false });
+        try {
+          // Slanje preko FormSubmit servisa na e-mail škole
+          const res = await fetch('https://formsubmit.co/ajax/bigbenzrenjanin@yahoo.com', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify({
+              _subject: 'Nova prijava sa sajta – ' + form.course,
+              _template: 'table', _captcha: 'false',
+              'Ime i prezime': form.name, 'Telefon': form.phone, 'Kurs': form.course, 'Poruka': form.message || '-'
+            })
+          });
+          if (!res.ok) throw new Error();
+          this.setState({ sent: true, sending: false });
+        } catch (err) { this.setState({ sending: false, error: true }); }
+      },
+      error: !!this.state.error,
+      resetForm: () => this.setState({ sent: false, form: { name: '', phone: '', course: 'Engleski – deca', message: '' } }),
+      submitLabel: this.state.sending ? 'Slanje...' : 'Pošalji prijavu',
+      submitCls: 'mt-1 h-14 inline-flex items-center justify-center gap-2 rounded-xl font-bold text-base transition ' + (valid ? 'bg-[#0E3868] text-white hover:bg-[#FFD36A] hover:text-[#0E3868] shadow-lg' : 'bg-[#0E3868]/85 text-white'),
+      year: new Date().getFullYear()
+    };
+  }
+}
+
+</script>
+</body>
+</html>
